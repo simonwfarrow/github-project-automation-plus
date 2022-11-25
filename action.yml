@@ -1,6 +1,6 @@
-name: 'GitHub Project Automation+'
-description: '🤖 Automate GitHub Project cards with any webhook event'
-author: 'Alex Page <alex@alexpage.com.au>'
+name: 'GitHub Enterprise Project Automation+'
+description: 'This is a fork of the github-project-automation-plus action to test the change to octokit to use GHES APIs. If working, will raise a PR and drop this action'
+author: 'Simon Farrow'
 inputs:
   repo-token:
     description: 'The GH_TOKEN secret can be passed in using {{ secrets.GH_TOKEN }}'
