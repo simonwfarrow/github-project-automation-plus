@@ -8,7 +8,6 @@ const generateMutationQuery = require('./generate-mutation-query');
 (async () => {
 	try {
 		const token = core.getInput('repo-token');
-		const ghesUrl = core.getInput('ghesUrl');
 		const project = core.getInput('project');
 		const column = core.getInput('column');
 		const action = core.getInput('action') || 'update';
@@ -16,13 +15,8 @@ const generateMutationQuery = require('./generate-mutation-query');
 		// Get data from the current action
 		const {eventName, nodeId, url} = getActionData(github.context);
 
-		core.debug(ghesUrl);
-		
 		// Create a method to query GitHub
-		const octokit = new github.getOctokit({
-		  auth: token,
-		  baseUrl: ghesUrl
-		});
+		const octokit = new github.getOctokit(token);
 	
 		// Get the column ID from searching for the project and card Id if it exists
 		const projectQuery = generateProjectQuery(url, eventName, project);
